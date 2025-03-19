@@ -81,7 +81,7 @@ namespace BTL.LOC
 
         private void LoadCrystalReport()
         {
-            string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
+            string connectionString = "Server=DESKTOP-V1JF8LF;Database=QUANLYHOCSINH;Integrated Security=True;";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {

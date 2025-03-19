@@ -169,7 +169,7 @@
             // dgvLop
             // 
             this.dgvLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLop.Location = new System.Drawing.Point(886, 13);
+            this.dgvLop.Location = new System.Drawing.Point(923, 152);
             this.dgvLop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvLop.Name = "dgvLop";
             this.dgvLop.RowHeadersWidth = 51;
