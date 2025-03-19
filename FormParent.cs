@@ -191,5 +191,13 @@ namespace BTL
                 diemHS.Show();
             }
         }
+
+        private void điểmTheoHọcSinhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DiemTheoHocSinh d = new DiemTheoHocSinh();
+            d.ShowDialog();
+            this.Show();
+        }
     }
 }

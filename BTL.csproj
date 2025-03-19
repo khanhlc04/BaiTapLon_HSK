@@ -89,6 +89,12 @@
     <Compile Include="FormLop.Designer.cs">
       <DependentUpon>FormLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM_TIM_KIEM\TimKiemGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM_TIM_KIEM\TimKiemGiaoVien.Designer.cs">
+      <DependentUpon>TimKiemGiaoVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM_TIM_KIEM\TimKiemHocSinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,12 @@
     </Compile>
     <Compile Include="LOC\Bao_cao.Designer.cs">
       <DependentUpon>Bao_cao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LOC\DiemTheoHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOC\DiemTheoHocSinh.Designer.cs">
+      <DependentUpon>DiemTheoHocSinh.cs</DependentUpon>
     </Compile>
     <Compile Include="LOC\DIEM_KHOANG_MON.cs">
       <SubType>Form</SubType>
@@ -125,6 +137,12 @@
       <DependentUpon>rptDiemHocSinh.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="LOC\rptDiemTheoHocSinh.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDiemTheoHocSinh.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sql.cs" />
@@ -143,11 +161,17 @@
     <EmbeddedResource Include="FormLop.resx">
       <DependentUpon>FormLop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORM_TIM_KIEM\TimKiemGiaoVien.resx">
+      <DependentUpon>TimKiemGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORM_TIM_KIEM\TimKiemHocSinh.resx">
       <DependentUpon>TimKiemHocSinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LOC\Bao_cao.resx">
       <DependentUpon>Bao_cao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOC\DiemTheoHocSinh.resx">
+      <DependentUpon>DiemTheoHocSinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LOC\DIEM_KHOANG_MON.resx">
       <DependentUpon>DIEM_KHOANG_MON.cs</DependentUpon>
@@ -162,6 +186,10 @@
     <EmbeddedResource Include="LOC\rptDiemHocSinh.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDiemHocSinh1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOC\rptDiemTheoHocSinh.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDiemTheoHocSinh.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
