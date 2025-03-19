@@ -41,7 +41,7 @@ namespace BTL.LOC
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 14);
+            this.label1.Location = new System.Drawing.Point(37, 141);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 13);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@ namespace BTL.LOC
             // cboLop
             // 
             this.cboLop.FormattingEnabled = true;
-            this.cboLop.Location = new System.Drawing.Point(113, 11);
+            this.cboLop.Location = new System.Drawing.Point(92, 138);
             this.cboLop.Name = "cboLop";
             this.cboLop.Size = new System.Drawing.Size(121, 21);
             this.cboLop.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace BTL.LOC
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 49);
+            this.label2.Location = new System.Drawing.Point(37, 177);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 0;
@@ -68,7 +68,7 @@ namespace BTL.LOC
             // cboHocSinh
             // 
             this.cboHocSinh.FormattingEnabled = true;
-            this.cboHocSinh.Location = new System.Drawing.Point(113, 46);
+            this.cboHocSinh.Location = new System.Drawing.Point(94, 169);
             this.cboHocSinh.Name = "cboHocSinh";
             this.cboHocSinh.Size = new System.Drawing.Size(121, 21);
             this.cboHocSinh.TabIndex = 1;
@@ -76,7 +76,7 @@ namespace BTL.LOC
             // 
             // btnXem
             // 
-            this.btnXem.Location = new System.Drawing.Point(263, 14);
+            this.btnXem.Location = new System.Drawing.Point(72, 209);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(75, 23);
             this.btnXem.TabIndex = 2;
@@ -89,9 +89,9 @@ namespace BTL.LOC
             this.rptDiemTheoHocSinh.ActiveViewIndex = -1;
             this.rptDiemTheoHocSinh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rptDiemTheoHocSinh.Cursor = System.Windows.Forms.Cursors.Default;
-            this.rptDiemTheoHocSinh.Location = new System.Drawing.Point(27, 100);
+            this.rptDiemTheoHocSinh.Location = new System.Drawing.Point(23, 12);
             this.rptDiemTheoHocSinh.Name = "rptDiemTheoHocSinh";
-            this.rptDiemTheoHocSinh.Size = new System.Drawing.Size(1350, 467);
+            this.rptDiemTheoHocSinh.Size = new System.Drawing.Size(1350, 559);
             this.rptDiemTheoHocSinh.TabIndex = 3;
             this.rptDiemTheoHocSinh.Load += new System.EventHandler(this.rptDiemTheoHocSinh_Load);
             // 
@@ -100,12 +100,12 @@ namespace BTL.LOC
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 608);
-            this.Controls.Add(this.rptDiemTheoHocSinh);
             this.Controls.Add(this.btnXem);
             this.Controls.Add(this.cboHocSinh);
             this.Controls.Add(this.cboLop);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.rptDiemTheoHocSinh);
             this.Name = "DiemTheoHocSinh";
             this.Text = "DiemTheoHocSinh";
             this.ResumeLayout(false);
