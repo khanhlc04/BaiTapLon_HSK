@@ -39,7 +39,7 @@ namespace BTL.LOC
 
         private void LoadDiemMonHoc(string maLop, string maMonHoc)
         {
-            string connectionString = "Server=localhost;Database=QUANLYHOCSINH;Integrated Security=True;";
+            string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
             string query = @"
             SELECT 
                 hs.HoTenHocSinh,
@@ -81,7 +81,7 @@ namespace BTL.LOC
 
         private void LoadCrystalReport()
         {
-            string connectionString = "Server=localhost;Database=QUANLYHOCSINH;Integrated Security=True;";
+            string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -96,7 +96,7 @@ namespace BTL.LOC
                     da.Fill(dt);
 
                     ReportDocument rptDoc = new ReportDocument();
-                    rptDoc.Load(@"D:\Hướng Sự Kiện\BaiTapLon\BaiTapLon\WindowsFormsApp1\rptDiemHocSinh.rpt");
+                    rptDoc.Load(@"C: \Users\ADMIN\BaiTapLon_HSK\LOC\rptDiemHocSinh.rpt");
                     rptDoc.SetDataSource(dt);
 
                     crystalReportDiemMonHoc.ReportSource = rptDoc;

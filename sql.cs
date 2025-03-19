@@ -15,7 +15,7 @@ namespace BTL
         // tham số dùng tạo select
         public string start, end, name;
         // Chuỗi kết nối đến SQL Server (Dùng static vì c# không cho 1 trường non-static làm tham số để khởi tạo giá trị 1 trường khác)
-        static string connectionString = "Server=localhost;Database=QUANLYHOCSINH;Integrated Security=True;";
+        static string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
         // Đối tượng connect
         public SqlConnection conn = new SqlConnection(connectionString);
 
@@ -178,6 +178,27 @@ namespace BTL
             cbb.DataSource = dt;
             cbb.DisplayMember = displayMember;
             cbb.ValueMember = valueMember;
+        }
+        public static DataTable GetData(string query)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return dt;
         }
     }
 }
