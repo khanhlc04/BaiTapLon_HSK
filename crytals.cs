@@ -15,7 +15,7 @@ namespace BTL
         
         ReportDocument cryRpt; 
        
-        public ReportDocument Load_crytal(string url)
+        public ReportDocument Load_crytal()
         {
             cryRpt = new ReportDocument();
             // Đường dẫn đến file Crystal Report (.rpt)

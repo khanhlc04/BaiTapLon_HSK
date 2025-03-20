@@ -82,12 +82,10 @@ namespace BTL.LOC
         private void LoadCrystalReport()
         {
             string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
-            string query = @"
-            SELECT * FROM GIAOVIEN 
-	        WHERE ChuyenMon = @ChuyenMon";
+            
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand cmd = new SqlCommand("getDiemHocSinh", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@MaLop", cbbLop.SelectedValue.ToString());
@@ -98,7 +96,7 @@ namespace BTL.LOC
                     da.Fill(dt);
 
                     ReportDocument rptDoc = new ReportDocument();
-                    rptDoc.Load(@"C: \Users\ADMIN\BaiTapLon_HSK\LOC\rptDiemHocSinh.rpt");
+                    rptDoc.Load(@"E:\Lập trình hướng sự kiện\BTL_LTHSK\BaiTapLon_HSK\LOC\rptDiemHocSinh.rpt");
                     rptDoc.SetDataSource(dt);
 
                     crystalReportDiemMonHoc.ReportSource = rptDoc;

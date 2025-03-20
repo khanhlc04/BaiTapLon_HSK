@@ -131,6 +131,18 @@
     <Compile Include="LOC\DiemTheoLop.Designer.cs">
       <DependentUpon>DiemTheoLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="LOC\HocSinhTheoLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOC\HocSinhTheoLop.Designer.cs">
+      <DependentUpon>HocSinhTheoLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LOC\rptHocSinhTheoLop1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHocSinhTheoLop.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LOC\rptDiemTheoLop.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,6 +221,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LOC\DiemTheoLop.resx">
       <DependentUpon>DiemTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOC\HocSinhTheoLop.resx">
+      <DependentUpon>HocSinhTheoLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOC\rptHocSinhTheoLop.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHocSinhTheoLop1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="LOC\rptDiemTheoLop.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
