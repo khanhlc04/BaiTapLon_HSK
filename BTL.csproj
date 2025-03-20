@@ -52,6 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LOC\FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOC\FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LOC\rptTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTest.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="crytals.cs" />
     <Compile Include="FormParent.cs">
       <SubType>Form</SubType>
@@ -158,6 +170,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sql.cs" />
+    <EmbeddedResource Include="LOC\FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOC\rptTest.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTest.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDiem.resx">
       <DependentUpon>FormDiem.cs</DependentUpon>
     </EmbeddedResource>

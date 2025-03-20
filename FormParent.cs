@@ -207,5 +207,11 @@ namespace BTL
             l.ShowDialog();
             this.Show();
         }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTest l = new FormTest();
+            l.ShowDialog();
+        }
     }
 }
