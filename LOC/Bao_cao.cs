@@ -16,7 +16,7 @@ namespace BTL.LOC
         public Bao_cao()
         {
             InitializeComponent();
-            crystalReportViewer1.ReportSource = cry.Load_crytal(@"D:\BTL\LOC\KHOANG_DIEM_MON.rpt");
+            crystalReportViewer1.ReportSource = cry.Load_crytal();
             crystalReportViewer1.RefreshReport(); // Nếu có thay đổi về source sẽ tự cập nhật lại 
         }
         public void Condition(string cond)

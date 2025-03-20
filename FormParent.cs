@@ -29,9 +29,9 @@ namespace BTL
 
         void hideOrtherForm(Form X)
         {
-            foreach(Form child in this.MdiChildren)
+            foreach (Form child in this.MdiChildren)
             {
-                if(X != child)
+                if (X != child)
                 {
                     child.Hide();
                 }
@@ -121,7 +121,8 @@ namespace BTL
                 diem.Hide();
             }
             else
-            {hideOrtherForm(diem);
+            {
+                hideOrtherForm(diem);
                 diem.Show();
             }
         }
