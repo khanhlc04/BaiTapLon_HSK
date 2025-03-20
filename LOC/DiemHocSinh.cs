@@ -81,11 +81,25 @@ namespace BTL.LOC
 
         private void LoadCrystalReport()
         {
-            string connectionString = "Server=DESKTOP-V1JF8LF;Database=QUANLYHOCSINH;Integrated Security=True;";
-
+            string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
+            string query = @"
+            SELECT 
+                hs.HoTenHocSinh,
+                mh.TenMonHoc,
+                dm.DiemGiuaKi,
+                dm.DiemCuoiKi,
+                dm.MaHocKi,
+                ROUND((dm.DiemGiuaKi * dm.HeSoDiemGiuaKi + dm.DiemCuoiKi * dm.HeSoDiemCuoiKi), 2) AS DiemTrungBinh,
+                l.TenLop
+            FROM DiemMonHoc dm
+            JOIN HoSoHocSinh hs ON dm.MaHocSinh = hs.MaHocSinh
+            JOIN MonHoc mh ON dm.MaMonHoc = mh.MaMonHoc
+            JOIN Lop l ON hs.MaLop = l.MaLop
+            WHERE dm.MaLop = @MaLop AND dm.MaMonHoc = @MaMonHoc
+            ORDER BY hs.HoTenHocSinh;";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("GetDiemHocSinh", conn))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@MaLop", cbbLop.SelectedValue.ToString());

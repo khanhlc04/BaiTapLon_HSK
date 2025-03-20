@@ -36,6 +36,8 @@ namespace BTL.LOC
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnXem = new System.Windows.Forms.Button();
             this.rptDiemTheoHocSinh = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboHocKi = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -76,7 +78,7 @@ namespace BTL.LOC
             // 
             // btnXem
             // 
-            this.btnXem.Location = new System.Drawing.Point(72, 209);
+            this.btnXem.Location = new System.Drawing.Point(70, 257);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(75, 23);
             this.btnXem.TabIndex = 2;
@@ -95,13 +97,36 @@ namespace BTL.LOC
             this.rptDiemTheoHocSinh.TabIndex = 3;
             this.rptDiemTheoHocSinh.Load += new System.EventHandler(this.rptDiemTheoHocSinh_Load);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(37, 204);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Học Kì";
+            // 
+            // cboHocKi
+            // 
+            this.cboHocKi.FormattingEnabled = true;
+            this.cboHocKi.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cboHocKi.Location = new System.Drawing.Point(94, 196);
+            this.cboHocKi.Name = "cboHocKi";
+            this.cboHocKi.Size = new System.Drawing.Size(121, 21);
+            this.cboHocKi.TabIndex = 1;
+            this.cboHocKi.SelectedIndexChanged += new System.EventHandler(this.cboHocSinh_SelectedIndexChanged);
+            // 
             // DiemTheoHocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 608);
             this.Controls.Add(this.btnXem);
+            this.Controls.Add(this.cboHocKi);
             this.Controls.Add(this.cboHocSinh);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cboLop);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -122,5 +147,7 @@ namespace BTL.LOC
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnXem;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer rptDiemTheoHocSinh;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboHocKi;
     }
 }
