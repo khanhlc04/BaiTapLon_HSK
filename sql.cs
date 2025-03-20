@@ -15,7 +15,7 @@ namespace BTL
         // tham số dùng tạo select
         public string start, end, name;
         // Chuỗi kết nối đến SQL Server (Dùng static vì c# không cho 1 trường non-static làm tham số để khởi tạo giá trị 1 trường khác)
-        static string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
+        static string connectionString = "Server=DESKTOP-V1JF8LF;Database=QUANLYHOCSINH;Integrated Security=True;";
         // Đối tượng connect
         public SqlConnection conn = new SqlConnection(connectionString);
 

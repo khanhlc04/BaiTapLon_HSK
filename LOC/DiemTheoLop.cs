@@ -1,4 +1,5 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,15 +43,15 @@ namespace BTL.LOC
         }
         private void LoadReport(string maLop, int maHocKi)
         {
-            string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
+            string connectionString = "Server=DESKTOP-V1JF8LF;Database=QUANLYHOCSINH;Integrated Security=True;";
             string query = @"
-        SELECT dm.MaMonHoc, hs.MaHocSinh, hs.HoTenHocSinh, mh.TenMonHoc, dm.DiemGiuaKi, dm.DiemCuoiKi, dm.MaHocKi
-        FROM DiemMonHoc dm
-        JOIN HoSoHocSinh hs ON dm.MaHocSinh = hs.MaHocSinh
-        JOIN MonHoc mh ON dm.MaMonHoc = mh.MaMonHoc
-        JOIN Lop l ON hs.MaLop = l.MaLop
-        WHERE l.MaLop = @MaLop AND dm.MaHocKi = @MaHocKi
-    ";
+                SELECT dm.MaMonHoc, hs.MaHocSinh, hs.HoTenHocSinh, mh.TenMonHoc, dm.DiemGiuaKi, dm.DiemCuoiKi, dm.MaHocKi
+                FROM DiemMonHoc dm
+                JOIN HoSoHocSinh hs ON dm.MaHocSinh = hs.MaHocSinh
+                JOIN MonHoc mh ON dm.MaMonHoc = mh.MaMonHoc
+                JOIN Lop l ON hs.MaLop = l.MaLop
+                WHERE l.MaLop = @MaLop AND dm.MaHocKi = @MaHocKi
+            ";
 
             DataTable dt = new DataTable();
             try
@@ -69,7 +70,21 @@ namespace BTL.LOC
                 }
 
                 ReportDocument rpt = new ReportDocument();
-                rpt.Load(@"E:\Lập trình hướng sự kiện\BTL_LTHSK\BaiTapLon_HSK\LOC\rptDiemTheoLop.rpt");
+                rpt.Load(@"D:\BaiTapLon_HSK\LOC\rptDiemTheoLop.rpt");
+
+                ConnectionInfo connInfo = new ConnectionInfo();
+                connInfo.ServerName = "DESKTOP-V1JF8LF"; // Ví dụ: "localhost"
+                connInfo.DatabaseName = "QUANLYHOCSINH"; // Ví dụ: "QLSV"
+
+                // Áp dụng thông tin kết nối cho từng bảng trong báo cáo
+                Tables tables = rpt.Database.Tables;
+                foreach (Table table in tables)
+                {
+                    TableLogOnInfo tableLogOnInfo = table.LogOnInfo;
+                    tableLogOnInfo.ConnectionInfo = connInfo;
+                    table.ApplyLogOnInfo(tableLogOnInfo);
+                }
+
                 rpt.SetDataSource(dt);
 
                 rptDiemTheoLop.ReportSource = rpt;
