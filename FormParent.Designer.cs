@@ -38,6 +38,7 @@
             this.điêmTheoMônKhoangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.điểmChiTiếtHọcSinhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.điểmTheoHọcSinhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.điểmTheoLớpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,7 +99,8 @@
             this.timKiêmVaLocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.điêmTheoMônKhoangToolStripMenuItem,
             this.điểmChiTiếtHọcSinhToolStripMenuItem,
-            this.điểmTheoHọcSinhToolStripMenuItem});
+            this.điểmTheoHọcSinhToolStripMenuItem,
+            this.điểmTheoLớpToolStripMenuItem});
             this.timKiêmVaLocToolStripMenuItem.Name = "timKiêmVaLocToolStripMenuItem";
             this.timKiêmVaLocToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.timKiêmVaLocToolStripMenuItem.Text = "Tìm kiếm và Lọc";
@@ -123,6 +125,13 @@
             this.điểmTheoHọcSinhToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.điểmTheoHọcSinhToolStripMenuItem.Text = "Điểm Theo Học Sinh";
             this.điểmTheoHọcSinhToolStripMenuItem.Click += new System.EventHandler(this.điểmTheoHọcSinhToolStripMenuItem_Click);
+            // 
+            // điểmTheoLớpToolStripMenuItem
+            // 
+            this.điểmTheoLớpToolStripMenuItem.Name = "điểmTheoLớpToolStripMenuItem";
+            this.điểmTheoLớpToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.điểmTheoLớpToolStripMenuItem.Text = "Điểm Theo Lớp";
+            this.điểmTheoLớpToolStripMenuItem.Click += new System.EventHandler(this.điểmTheoLớpToolStripMenuItem_Click);
             // 
             // FormParent
             // 
@@ -153,6 +162,7 @@
         private System.Windows.Forms.ToolStripMenuItem điêmTheoMônKhoangToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem điểmChiTiếtHọcSinhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem điểmTheoHọcSinhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem điểmTheoLớpToolStripMenuItem;
     }
 }
 

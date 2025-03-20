@@ -199,5 +199,13 @@ namespace BTL
             d.ShowDialog();
             this.Show();
         }
+
+        private void điểmTheoLớpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DiemTheoLop l = new DiemTheoLop();
+            l.ShowDialog();
+            this.Show();
+        }
     }
 }
