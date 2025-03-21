@@ -2,6 +2,8 @@
 using System.Data;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using BTL.FORM_TIM_KIEM;
+using System.Linq;
 
 namespace BTL
 {
@@ -111,6 +113,25 @@ namespace BTL
         // Khai báo biến toàn cục
         private string oldMaLop, oldTenLop, oldMaGV;
         private int oldSiSo, oldNamHoc;
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            string query = "Select * from Lop where deleted = 0";
+            TimKiemLop tkl = new TimKiemLop();
+            if (tkl.ShowDialog() == DialogResult.OK) // Chỉ chạy khi người dùng nhập và đóng form
+            {
+                string[] result = tkl.x;
+                List<string> filters = result.Where(r => !string.IsNullOrEmpty(r)).ToList(); // Lọc giá trị rỗng
+
+                if (filters.Count > 0)
+                {
+                    query += " AND " + string.Join(" AND ", filters); // Ghép điều kiện SQL
+                }
+            }
+
+            MessageBox.Show(query);
+            dgvLop.DataSource = SQL.datatable(query);
+        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {

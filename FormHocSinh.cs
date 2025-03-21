@@ -41,7 +41,22 @@ namespace BTL
             SQL.Connect();
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
-            dgvHocSinh.DataSource = SQL.datatable("SELECT * FROM HoSoHocSinh WHERE deleted = 0");
+            dgvHocSinh.DataSource = SQL.datatable(@"
+            SELECT 
+                MaHocSinh, 
+                HoTenHocSinh, 
+                DiaChi, 
+                NgaySinh, 
+                CASE 
+                    WHEN GioiTinh = 1 THEN N'Nam' 
+                    ELSE N'Nữ' 
+                END AS GioiTinh, 
+                DanToc, 
+                QuocTich, 
+                SoDienThoai, 
+                MaLop
+            FROM HoSoHocSinh 
+            WHERE deleted = 0");
             SQL.Close();
         }
 
@@ -182,7 +197,22 @@ namespace BTL
 
         private void Click_to_open_form_Find(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM HoSoHocSinh WHERE deleted = 0";
+            string query = @"
+            SELECT 
+                MaHocSinh, 
+                HoTenHocSinh, 
+                DiaChi, 
+                NgaySinh, 
+                CASE 
+                    WHEN GioiTinh = 1 THEN N'Nam' 
+                    ELSE N'Nữ' 
+                END AS GioiTinh, 
+                DanToc, 
+                QuocTich, 
+                SoDienThoai, 
+                MaLop
+            FROM HoSoHocSinh 
+            WHERE deleted = 0";
             TimKiemHocSinh fhs = new TimKiemHocSinh();
 
             if (fhs.ShowDialog() == DialogResult.OK) // Chỉ chạy khi người dùng nhập và đóng form

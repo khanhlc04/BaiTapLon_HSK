@@ -93,6 +93,10 @@ namespace BTL
                 SQL.updateD(updateTenMon);
             }
             SQL.Close();
+
+            MessageBox.Show($"Cập Nhật thành Công!!!");
+
+            reload();
         }
 
         private void click_toDeleteMH(object sender, EventArgs e)

@@ -42,6 +42,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvLop = new System.Windows.Forms.DataGridView();
+            this.btnFind = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numSiSo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numNamHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).BeginInit();
@@ -179,11 +180,22 @@
             this.dgvLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.fill_input);
             this.dgvLop.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLop_CellContentClick);
             // 
+            // btnFind
+            // 
+            this.btnFind.Location = new System.Drawing.Point(444, 421);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(95, 30);
+            this.btnFind.TabIndex = 14;
+            this.btnFind.Text = "Tìm Kiếm";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
             // FormLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1998, 962);
+            this.Controls.Add(this.btnFind);
             this.Controls.Add(this.dgvLop);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -225,5 +237,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvLop;
+        private System.Windows.Forms.Button btnFind;
     }
 }
