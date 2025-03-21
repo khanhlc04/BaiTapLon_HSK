@@ -24,7 +24,7 @@ namespace BTL.LOC
         private void LoadLop()
         {
             SQL.Connect();
-            DataTable dtLop = sql.GetData("SELECT * FROM Lop");
+            DataTable dtLop = sql.GetData("SELECT * FROM Lop Where deleted = 0");
             SQL.FillComboBox(cboLop, dtLop, "TenLop", "MaLop");
             cboLop.SelectedIndex = -1;
         }

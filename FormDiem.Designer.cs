@@ -42,7 +42,6 @@
             this.numDiemGiuaKi = new System.Windows.Forms.NumericUpDown();
             this.numDiemCuoiKi = new System.Windows.Forms.NumericUpDown();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnFind = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -195,18 +194,9 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnFind
-            // 
-            this.btnFind.Location = new System.Drawing.Point(193, 466);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(75, 31);
-            this.btnFind.TabIndex = 10;
-            this.btnFind.Text = "Tìm";
-            this.btnFind.UseVisualStyleBackColor = true;
-            // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(46, 546);
+            this.btnUpdate.Location = new System.Drawing.Point(193, 466);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 31);
             this.btnUpdate.TabIndex = 11;
@@ -216,7 +206,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(193, 546);
+            this.btnDelete.Location = new System.Drawing.Point(46, 535);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 31);
             this.btnDelete.TabIndex = 12;
@@ -248,7 +238,6 @@
             this.ClientSize = new System.Drawing.Size(2181, 985);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.numDiemCuoiKi);
             this.Controls.Add(this.numDiemGiuaKi);
@@ -293,7 +282,6 @@
         private System.Windows.Forms.NumericUpDown numDiemGiuaKi;
         private System.Windows.Forms.NumericUpDown numDiemCuoiKi;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label6;

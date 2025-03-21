@@ -19,12 +19,12 @@ namespace BTL
         {
             cryRpt = new ReportDocument();
             // Đường dẫn đến file Crystal Report (.rpt)
-            string reportPath = $"{@"C:\Users\ADMIN\BaiTapLon_HSK\LOC\KHOANG_DIEM_MON.rpt"}";
+            string reportPath = $"{@"D:\BaiTapLon_HSK\LOC\KHOANG_DIEM_MON.rpt"}";
             cryRpt.Load(reportPath);
 
             // Tạo đối tượng kết nối CSDL
             ConnectionInfo connInfo = new ConnectionInfo();
-            connInfo.ServerName = "LAPTOPCUATRUONG"; // Ví dụ: "localhost"
+            connInfo.ServerName = "DESKTOP-V1JF8LF"; // Ví dụ: "localhost"
             connInfo.DatabaseName = "QUANLYHOCSINH"; // Ví dụ: "QLSV"
             
 

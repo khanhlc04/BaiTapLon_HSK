@@ -23,6 +23,7 @@ namespace BTL
         private DiemHocSinh diemHS = null;
         private DiemTheoHocSinh diemTheoHS = null;
         private DiemTheoLop diemTheoLop = null;
+        private HocSinhTheoLop hocSinhTheoLop = null;
         public FormParent()
         {
             InitializeComponent();
@@ -244,6 +245,28 @@ namespace BTL
         {
             FormTest l = new FormTest();
             l.ShowDialog();
+        }
+
+        private void họcSinhTheoLớpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (hocSinhTheoLop == null || hocSinhTheoLop.IsDisposed)
+            {
+                hocSinhTheoLop = new HocSinhTheoLop();
+                hocSinhTheoLop.MdiParent = this;
+                hocSinhTheoLop.FormClosed += (s, args) => hocSinhTheoLop = null;
+                // Trước khi show phải ẩn form khác
+                hideOrtherForm(hocSinhTheoLop);
+                hocSinhTheoLop.Show();
+            }
+            else if (hocSinhTheoLop.Visible)
+            {
+                hocSinhTheoLop.Hide();
+            }
+            else
+            {
+                hideOrtherForm(diemTheoLop);
+                hocSinhTheoLop.Show();
+            }
         }
     }
 }

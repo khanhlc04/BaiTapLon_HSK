@@ -28,10 +28,10 @@ namespace BTL.LOC
 
             SQL.Connect();
 
-            DataTable dtLop = SQL.datatable("SELECT * FROM Lop");
+            DataTable dtLop = SQL.datatable("SELECT * FROM Lop Where deleted = 0");
             SQL.FillComboBox(cbbLop, dtLop, "TenLop", "MaLop");
 
-            DataTable dtMonHoc = SQL.datatable("SELECT * FROM MonHoc");
+            DataTable dtMonHoc = SQL.datatable("SELECT * FROM MonHoc Where deleted = 0");
             SQL.FillComboBox(cbbMonHoc, dtMonHoc, "TenMonHoc", "MaMonHoc");
 
             SQL.Close();
@@ -39,7 +39,7 @@ namespace BTL.LOC
 
         private void LoadDiemMonHoc(string maLop, string maMonHoc)
         {
-            string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
+            string connectionString = "Server=DESKTOP-V1JF8LF;Database=QUANLYHOCSINH;Integrated Security=True;";
             string query = @"
             SELECT 
                 hs.HoTenHocSinh,
@@ -81,7 +81,7 @@ namespace BTL.LOC
 
         private void LoadCrystalReport()
         {
-            string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
+            string connectionString = "Server=DESKTOP-V1JF8LF;Database=QUANLYHOCSINH;Integrated Security=True;";
             
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -96,7 +96,7 @@ namespace BTL.LOC
                     da.Fill(dt);
 
                     ReportDocument rptDoc = new ReportDocument();
-                    rptDoc.Load(@"E:\Lập trình hướng sự kiện\BTL_LTHSK\BaiTapLon_HSK\LOC\rptDiemHocSinh.rpt");
+                    rptDoc.Load(@"D:\BaiTapLon_HSK\LOC\rptDiemHocSinh.rpt");
                     rptDoc.SetDataSource(dt);
 
                     crystalReportDiemMonHoc.ReportSource = rptDoc;

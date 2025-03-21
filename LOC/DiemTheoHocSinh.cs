@@ -23,14 +23,14 @@ namespace BTL.LOC
         private void LoadLop()
         {
             SQL.Connect();
-            DataTable dtLop = sql.GetData("SELECT * FROM Lop");
+            DataTable dtLop = sql.GetData("SELECT * FROM Lop Where deleted = 0");
             SQL.FillComboBox(cboLop, dtLop, "TenLop", "MaLop");
             cboLop.SelectedIndex = -1;
         }
         private void LoadHocSinh(string maLop)
         {
             SQL.Connect();
-            DataTable dt = sql.GetData($"SELECT MaHocSinh, HoTenHocSinh FROM HoSoHocSinh WHERE MaLop = '{maLop}'");
+            DataTable dt = sql.GetData($"SELECT MaHocSinh, HoTenHocSinh FROM HoSoHocSinh WHERE deleted = 0 AND MaLop = '{maLop}'");
             SQL.FillComboBox(cboHocSinh, dt, "HoTenHocSinh", "MaHocSinh");
             cboHocSinh.SelectedIndex = -1;
         }
@@ -57,15 +57,15 @@ namespace BTL.LOC
 
         private void LoadReport(string maHocSinh, int maHocKi)
         {
-            string connectionString = "Server=LAPTOPCUATRUONG;Database=QUANLYHOCSINH;Integrated Security=True;";
+            string connectionString = "Server=DESKTOP-V1JF8LF;Database=QUANLYHOCSINH;Integrated Security=True;";
             string query = @"
-        SELECT dm.MaMonHoc, hs.MaHocSinh, hs.HoTenHocSinh, mh.TenMonHoc, dm.DiemGiuaKi, dm.DiemCuoiKi, dm.MaHocKi
-        FROM DiemMonHoc dm
-        JOIN HoSoHocSinh hs ON dm.MaHocSinh = hs.MaHocSinh
-        JOIN MonHoc mh ON dm.MaMonHoc = mh.MaMonHoc
-        JOIN Lop l ON hs.MaLop = l.MaLop
-        WHERE hs.MaHocSinh = @MaHocSinh AND dm.MaHocKi = @MaHocKi
-    ";
+                SELECT dm.MaMonHoc, hs.MaHocSinh, hs.HoTenHocSinh, mh.TenMonHoc, dm.DiemGiuaKi, dm.DiemCuoiKi, dm.MaHocKi
+                FROM DiemMonHoc dm
+                JOIN HoSoHocSinh hs ON dm.MaHocSinh = hs.MaHocSinh
+                JOIN MonHoc mh ON dm.MaMonHoc = mh.MaMonHoc
+                JOIN Lop l ON hs.MaLop = l.MaLop
+                WHERE hs.MaHocSinh = @MaHocSinh AND dm.MaHocKi = @MaHocKi
+            ";
 
             DataTable dt = new DataTable();
             try
@@ -84,7 +84,7 @@ namespace BTL.LOC
                 }
 
                 ReportDocument rpt = new ReportDocument();
-                rpt.Load(@"C:\Users\ADMIN\BaiTapLon_HSK\LOC\rptDiemTheoHocSinh.rpt");
+                rpt.Load(@"D:\BaiTapLon_HSK\LOC\rptDiemTheoHocSinh.rpt");
                 rpt.SetDataSource(dt);
 
                 rptDiemTheoHocSinh.ReportSource = rpt;

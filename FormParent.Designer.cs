@@ -40,6 +40,7 @@
             this.điểmTheoHọcSinhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.điểmTheoLớpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.họcSinhTheoLớpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +104,7 @@
             this.điểmChiTiếtHọcSinhToolStripMenuItem,
             this.điểmTheoHọcSinhToolStripMenuItem,
             this.điểmTheoLớpToolStripMenuItem,
+            this.họcSinhTheoLớpToolStripMenuItem,
             this.testToolStripMenuItem});
             this.timKiêmVaLocToolStripMenuItem.Name = "timKiêmVaLocToolStripMenuItem";
             this.timKiêmVaLocToolStripMenuItem.Size = new System.Drawing.Size(155, 29);
@@ -143,6 +145,13 @@
             this.testToolStripMenuItem.Text = "test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
+            // họcSinhTheoLớpToolStripMenuItem
+            // 
+            this.họcSinhTheoLớpToolStripMenuItem.Name = "họcSinhTheoLớpToolStripMenuItem";
+            this.họcSinhTheoLớpToolStripMenuItem.Size = new System.Drawing.Size(322, 34);
+            this.họcSinhTheoLớpToolStripMenuItem.Text = "Học Sinh Theo Lớp";
+            this.họcSinhTheoLớpToolStripMenuItem.Click += new System.EventHandler(this.họcSinhTheoLớpToolStripMenuItem_Click);
+            // 
             // FormParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -174,6 +183,7 @@
         private System.Windows.Forms.ToolStripMenuItem điểmTheoHọcSinhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem điểmTheoLớpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem họcSinhTheoLớpToolStripMenuItem;
     }
 }
 
