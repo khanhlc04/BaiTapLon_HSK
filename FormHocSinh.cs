@@ -41,14 +41,14 @@ namespace BTL
             SQL.Connect();
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
-            dgvHocSinh.DataSource = SQL.datatable("SELECT * FROM HoSoHocSinh");
+            dgvHocSinh.DataSource = SQL.datatable("SELECT * FROM HoSoHocSinh WHERE deleted = 0");
             SQL.Close();
         }
 
         private void loadDropList()
         {
             SQL.Connect();
-            DataTable hocSinh = SQL.datatable("SELECT * FROM Lop");
+            DataTable hocSinh = SQL.datatable("SELECT * FROM Lop WHERE deleted = 0");
             SQL.FillComboBox(cbbLop, hocSinh, "TenLop", "MaLop");
             SQL.Close();
         }
@@ -156,7 +156,7 @@ namespace BTL
 
             try
             {
-                string query = $"DELETE FROM HoSoHocSinh WHERE MaHocSinh = '{maHocSinh}'";
+                string query = $"UPDATE HoSoHocSinh SET deleted = 1 WHERE MaHocSinh = '{maHocSinh}'";
                 int result = SQL.DeleteD(query);
 
                 if (result > 0)
@@ -182,7 +182,7 @@ namespace BTL
 
         private void Click_to_open_form_Find(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM HoSoHocSinh";
+            string query = "SELECT * FROM HoSoHocSinh WHERE deleted = 0";
             TimKiemHocSinh fhs = new TimKiemHocSinh();
 
             if (fhs.ShowDialog() == DialogResult.OK) // Chỉ chạy khi người dùng nhập và đóng form
@@ -192,7 +192,7 @@ namespace BTL
 
                 if (filters.Count > 0)
                 {
-                    query += " WHERE " + string.Join(" AND ", filters); // Ghép điều kiện SQL
+                    query += " AND " + string.Join(" AND ", filters); // Ghép điều kiện SQL
                 }
             }
 
@@ -202,38 +202,45 @@ namespace BTL
 
         private void showHOCSINH(object sender, DataGridViewCellEventArgs e)
         {
-            btnUpdate.Enabled = true;
-            btnDelete.Enabled = true;
+            try
+            {
+                btnUpdate.Enabled = true;
+                btnDelete.Enabled = true;
 
-            if (e.RowIndex < 0) return; // Đảm bảo không click vào tiêu đề
+                if (e.RowIndex < 0) return; // Đảm bảo không click vào tiêu đề
 
-            DataGridViewRow row = dgvHocSinh.Rows[e.RowIndex];
+                DataGridViewRow row = dgvHocSinh.Rows[e.RowIndex];
 
-            // Lấy dữ liệu từ DataGridView
-            string id = row.Cells["MaHocSinh"].Value?.ToString();
-            string name = row.Cells["HoTenHocSinh"].Value?.ToString();
-            string dt = row.Cells["DiaChi"].Value?.ToString();
-            DateTime timeOld = Convert.ToDateTime(row.Cells["NgaySinh"].Value);
-            bool GioiTinh = Convert.ToBoolean(row.Cells["GioiTinh"].Value);
-            string QuocTich = row.Cells["QuocTich"].Value?.ToString();
-            string DanToc = row.Cells["DanToc"].Value?.ToString();
-            string SDT = row.Cells["SoDienThoai"].Value?.ToString();
-            string MaLop = row.Cells["MaLop"].Value?.ToString();
+                // Lấy dữ liệu từ DataGridView
+                string id = row.Cells["MaHocSinh"].Value?.ToString();
+                string name = row.Cells["HoTenHocSinh"].Value?.ToString();
+                string dt = row.Cells["DiaChi"].Value?.ToString();
+                DateTime timeOld = Convert.ToDateTime(row.Cells["NgaySinh"].Value);
+                bool GioiTinh = Convert.ToBoolean(row.Cells["GioiTinh"].Value);
+                string QuocTich = row.Cells["QuocTich"].Value?.ToString();
+                string DanToc = row.Cells["DanToc"].Value?.ToString();
+                string SDT = row.Cells["SoDienThoai"].Value?.ToString();
+                string MaLop = row.Cells["MaLop"].Value?.ToString();
 
-            // Gán giá trị vào các control
-            txtMaHS.Text = id;
-            txtHoTen.Text = name;
-            txtDiaChi.Text = dt;
-            dtNgaySinh.Value = timeOld;
-            radioNam.Checked = GioiTinh;
-            radioNu.Checked = !GioiTinh;
-            txtDanToc.Text = DanToc;
-            txtQuocTich.Text = QuocTich;
-            txtSoDienThoai.Text = SDT;
-            cbbLop.SelectedValue = MaLop;
+                // Gán giá trị vào các control
+                txtMaHS.Text = id;
+                txtHoTen.Text = name;
+                txtDiaChi.Text = dt;
+                dtNgaySinh.Value = timeOld;
+                radioNam.Checked = GioiTinh;
+                radioNu.Checked = !GioiTinh;
+                txtDanToc.Text = DanToc;
+                txtQuocTich.Text = QuocTich;
+                txtSoDienThoai.Text = SDT;
+                cbbLop.SelectedValue = MaLop;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hàng này không có giá trị!");
+            }
         }
 
-        private void txtMaHS_TextChanged(object sender, EventArgs e)
+        /* private void txtMaHS_TextChanged(object sender, EventArgs e)
         {
             string ma = txtMaHS.Text.Trim();
 
@@ -336,6 +343,6 @@ namespace BTL
             {
                 err.SetError(txtHoTen, "");
             }
-        }
+        } */
     }
 }

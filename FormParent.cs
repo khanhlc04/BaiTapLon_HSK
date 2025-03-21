@@ -21,6 +21,8 @@ namespace BTL
         private FormLop lop = null;
         private DIEM_KHOANG_MON DKM = null; // caanf cos using BTL.LOC; vif thuoc thuw mucj khacs
         private DiemHocSinh diemHS = null;
+        private DiemTheoHocSinh diemTheoHS = null;
+        private DiemTheoLop diemTheoLop = null;
         public FormParent()
         {
             InitializeComponent();
@@ -195,18 +197,47 @@ namespace BTL
 
         private void điểmTheoHọcSinhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DiemTheoHocSinh d = new DiemTheoHocSinh();
-            d.ShowDialog();
-            this.Show();
+
+            if (diemTheoHS == null || diemTheoHS.IsDisposed)
+            {
+                diemTheoHS = new DiemTheoHocSinh();
+                diemTheoHS.MdiParent = this;
+                diemTheoHS.FormClosed += (s, args) => diemTheoHS = null;
+                // Trước khi show phải ẩn form khác
+                hideOrtherForm(diemTheoHS);
+                diemTheoHS.Show();
+            }
+            else if (diemTheoHS.Visible)
+            {
+                diemTheoHS.Hide();
+            }
+            else
+            {
+                hideOrtherForm(diemTheoHS);
+                diemTheoHS.Show();
+            }
         }
 
         private void điểmTheoLớpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DiemTheoLop l = new DiemTheoLop();
-            l.ShowDialog();
-            this.Show();
+            if (diemTheoLop == null || diemTheoLop.IsDisposed)
+            {
+                diemTheoLop = new DiemTheoLop();
+                diemTheoLop.MdiParent = this;
+                diemTheoLop.FormClosed += (s, args) => diemTheoLop = null;
+                // Trước khi show phải ẩn form khác
+                hideOrtherForm(diemTheoLop);
+                diemTheoLop.Show();
+            }
+            else if (diemTheoLop.Visible)
+            {
+                diemTheoLop.Hide();
+            }
+            else
+            {
+                hideOrtherForm(diemTheoLop);
+                diemTheoLop.Show();
+            }
         }
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)

@@ -132,7 +132,6 @@
             this.txtMaHS.Name = "txtMaHS";
             this.txtMaHS.Size = new System.Drawing.Size(152, 26);
             this.txtMaHS.TabIndex = 6;
-            this.txtMaHS.TextChanged += new System.EventHandler(this.txtMaHS_TextChanged);
             // 
             // label2
             // 
@@ -150,7 +149,6 @@
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(292, 26);
             this.txtHoTen.TabIndex = 8;
-            this.txtHoTen.TextChanged += new System.EventHandler(this.txtHoTen_TextChanged);
             // 
             // label3
             // 
@@ -168,7 +166,6 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(292, 26);
             this.txtDiaChi.TabIndex = 10;
-            this.txtDiaChi.TextChanged += new System.EventHandler(this.txtDiaChi_TextChanged);
             // 
             // label4
             // 
@@ -250,7 +247,6 @@
             this.txtDanToc.Name = "txtDanToc";
             this.txtDanToc.Size = new System.Drawing.Size(294, 26);
             this.txtDanToc.TabIndex = 16;
-            this.txtDanToc.TextChanged += new System.EventHandler(this.txtDanToc_TextChanged);
             // 
             // label7
             // 
@@ -268,7 +264,6 @@
             this.txtQuocTich.Name = "txtQuocTich";
             this.txtQuocTich.Size = new System.Drawing.Size(294, 26);
             this.txtQuocTich.TabIndex = 18;
-            this.txtQuocTich.TextChanged += new System.EventHandler(this.txtQuocTich_TextChanged);
             // 
             // txtSoDienThoai
             // 

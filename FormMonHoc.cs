@@ -25,13 +25,13 @@ namespace BTL
             txtTenMon.Clear();
 
             SQL.Connect();
-            dgvMonHoc.DataSource = SQL.datatable("SELECT * FROM MonHoc");
+            dgvMonHoc.DataSource = SQL.datatable("SELECT * FROM MonHoc WHERE Deleted = 0");
             SQL.Close();
         }
 
         private void find(object sender, EventArgs e)
         {
-            StringBuilder query = new StringBuilder("SELECT * FROM MonHoc");
+            StringBuilder query = new StringBuilder("SELECT * FROM MonHoc WHERE deleted = 0");
             List<string> conditions = new List<string>();
 
             if (!string.IsNullOrWhiteSpace(txtMaMH.Text))
@@ -41,7 +41,7 @@ namespace BTL
                 conditions.Add($"TenMonHoc LIKE N'%{txtTenMon.Text.Trim()}%'");
 
             if (conditions.Count > 0)
-                query.Append(" WHERE " + string.Join(" AND ", conditions));
+                query.Append(" AND " + string.Join(" AND ", conditions));
 
             SQL.Connect();
             dgvMonHoc.DataSource = SQL.datatable(query.ToString());
@@ -105,7 +105,7 @@ namespace BTL
             }
 
             SQL.Connect();
-            string query = $"DELETE FROM MonHoc WHERE MaMonHoc = '{maMH}'";
+            string query = $"UPDATE MonHoc SET Deleted = 1 WHERE MaMonHoc = '{maMH}'";
             SQL.DeleteD(query);
             SQL.Close();
 

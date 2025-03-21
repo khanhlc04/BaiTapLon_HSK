@@ -25,7 +25,7 @@ namespace BTL
             SQL.Connect();
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
-            dgvGiaoVien.DataSource = SQL.datatable("Select * from GiaoVien");
+            dgvGiaoVien.DataSource = SQL.datatable("Select * from GiaoVien Where deleted = 0");
             SQL.Close();
         }
 
@@ -134,7 +134,7 @@ namespace BTL
 
             try
             {
-                string query = $"DELETE FROM GiaoVien WHERE MaGiaoVien = '{maGiaoVien}'";
+                string query = $"UPDATE GiaoVien SET deleted = 1 WHERE MaGiaoVien = '{maGiaoVien}'";
                 int result = SQL.DeleteD(query);
 
                 if (result > 0)
@@ -156,12 +156,9 @@ namespace BTL
             ResetForm();
         }
 
-        
-        
-
         private void btnFind_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM GiaoVien";
+            string query = "SELECT * FROM GiaoVien WHERE deleted = 0";
             TimKiemGiaoVien fgv = new TimKiemGiaoVien();
 
             if (fgv.ShowDialog() == DialogResult.OK) // Chỉ chạy khi người dùng nhập và đóng form
@@ -171,7 +168,7 @@ namespace BTL
 
                 if (filters.Count > 0)
                 {
-                    query += " WHERE " + string.Join(" AND ", filters); // Ghép điều kiện SQL
+                    query += " AND " + string.Join(" AND ", filters); // Ghép điều kiện SQL
                 }
             }
 
@@ -181,28 +178,35 @@ namespace BTL
 
         private void dgvGiaoVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnUpdate.Enabled = true;
-            btnDelete.Enabled = true;
+            try
+            {
+                btnUpdate.Enabled = true;
+                btnDelete.Enabled = true;
 
-            if (e.RowIndex < 0) return; // Đảm bảo không click vào tiêu đề
+                if (e.RowIndex < 0) return; // Đảm bảo không click vào tiêu đề
 
-            DataGridViewRow row = dgvGiaoVien.Rows[e.RowIndex];
+                DataGridViewRow row = dgvGiaoVien.Rows[e.RowIndex];
 
-            // Lấy dữ liệu từ DataGridView
-            string id = row.Cells["MaGiaoVien"].Value?.ToString();
-            string name = row.Cells["TenGiaoVien"].Value?.ToString();
-            string dt = row.Cells["DiaChi"].Value?.ToString();
-            DateTime timeOld = Convert.ToDateTime(row.Cells["NgaySinh"].Value);       
-            string SDT = row.Cells["SoDienThoai"].Value?.ToString();
-            string ChuyenMon = row.Cells["ChuyenMon"].Value?.ToString();
+                // Lấy dữ liệu từ DataGridView
+                string id = row.Cells["MaGiaoVien"].Value?.ToString();
+                string name = row.Cells["TenGiaoVien"].Value?.ToString();
+                string dt = row.Cells["DiaChi"].Value?.ToString();
+                DateTime timeOld = Convert.ToDateTime(row.Cells["NgaySinh"].Value);
+                string SDT = row.Cells["SoDienThoai"].Value?.ToString();
+                string ChuyenMon = row.Cells["ChuyenMon"].Value?.ToString();
 
-            // Gán giá trị vào các control
-            txtMaGV.Text = id;
-            txtHoTen.Text = name;
-            txtDiaChi.Text = dt;
-            dtNgaySinh.Value = timeOld;     
-            txtSoDienThoai.Text = SDT;
-            txtChuyenMon.Text = ChuyenMon;
+                // Gán giá trị vào các control
+                txtMaGV.Text = id;
+                txtHoTen.Text = name;
+                txtDiaChi.Text = dt;
+                dtNgaySinh.Value = timeOld;
+                txtSoDienThoai.Text = SDT;
+                txtChuyenMon.Text = ChuyenMon;
+            }
+            catch
+            {
+                MessageBox.Show("Hàng này không có giá trị!");
+            }
         }
     }
 }

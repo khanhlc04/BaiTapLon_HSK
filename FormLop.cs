@@ -23,7 +23,7 @@ namespace BTL
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
 
-            DataTable dt = SQL.datatable("SELECT * FROM Lop");
+            DataTable dt = SQL.datatable("SELECT * FROM Lop Where deleted = 0");
             dgvLop.DataSource = dt;
 
             SQL.Close();
@@ -46,7 +46,7 @@ namespace BTL
         private void loadDropList()
         {
             SQL.Connect();
-            DataTable hocSinh = SQL.datatable("SELECT * FROM GiaoVien");
+            DataTable hocSinh = SQL.datatable("SELECT * FROM GiaoVien WHERE deleted = 0");
             SQL.FillComboBox(cbbGiaoVien, hocSinh, "TenGiaoVien", "MaGiaoVien");
             SQL.Close();
         }
@@ -131,7 +131,7 @@ namespace BTL
 
             try
             {
-                string query = $"DELETE FROM Lop WHERE MaLop = '{maLop}'";
+                string query = $"UPDATE Lop SET deleted = 1 WHERE MaLop = '{maLop}'";
                 int result = SQL.DeleteD(query);
 
                 if (result == 547)  // Mã lỗi SQL nếu có ràng buộc khóa ngoại
@@ -212,7 +212,7 @@ namespace BTL
                 int result = SQL.updateD(updateMaLop);
                 if (result == 547)
                 {
-                    MessageBox.Show($"Lỗi ràng buộc: Hãy cập nhật dữ liệu liên quan trước khi đổi {oldMaLop} -> {newMaLop}");
+                    // MessageBox.Show($"Lỗi ràng buộc: Hãy cập nhật dữ liệu liên quan trước khi đổi {oldMaLop} -> {newMaLop}");
                     SQL.Close();
                     return;
                 }

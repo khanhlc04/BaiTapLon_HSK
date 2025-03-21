@@ -151,6 +151,12 @@
             // 
             // numDiemGiuaKi
             // 
+            this.numDiemGiuaKi.DecimalPlaces = 2;
+            this.numDiemGiuaKi.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            131072});
             this.numDiemGiuaKi.Location = new System.Drawing.Point(158, 335);
             this.numDiemGiuaKi.Maximum = new decimal(new int[] {
             10,
@@ -163,6 +169,12 @@
             // 
             // numDiemCuoiKi
             // 
+            this.numDiemCuoiKi.DecimalPlaces = 2;
+            this.numDiemCuoiKi.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            131072});
             this.numDiemCuoiKi.Location = new System.Drawing.Point(158, 387);
             this.numDiemCuoiKi.Maximum = new decimal(new int[] {
             10,
