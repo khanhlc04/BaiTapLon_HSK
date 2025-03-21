@@ -1,4 +1,5 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -85,6 +86,20 @@ namespace BTL.LOC
 
                 ReportDocument rpt = new ReportDocument();
                 rpt.Load(@"D:\BaiTapLon_HSK\LOC\rptDiemTheoHocSinh.rpt");
+
+                ConnectionInfo connInfo = new ConnectionInfo();
+                connInfo.ServerName = "DESKTOP-V1JF8LF"; // Ví dụ: "localhost"
+                connInfo.DatabaseName = "QUANLYHOCSINH"; // Ví dụ: "QLSV"
+
+                // Áp dụng thông tin kết nối cho từng bảng trong báo cáo
+                Tables tables = rpt.Database.Tables;
+                foreach (Table table in tables)
+                {
+                    TableLogOnInfo tableLogOnInfo = table.LogOnInfo;
+                    tableLogOnInfo.ConnectionInfo = connInfo;
+                    table.ApplyLogOnInfo(tableLogOnInfo);
+                }
+
                 rpt.SetDataSource(dt);
 
                 rptDiemTheoHocSinh.ReportSource = rpt;
